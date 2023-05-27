@@ -5,20 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bee28d6e-dcad-45fb-9770-1f07c60329e3" name="Changes" comment="nn">
-      <change afterPath="$PROJECT_DIR$/src/Constant.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Date.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/DateTime.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Difference.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Function.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ItemInPolynomial.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/MultiProduct.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/MultiSum.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Negation.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Polynomial.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Power.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Product.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Quotient.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Sum.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -55,6 +41,10 @@
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "editor.preferences.tabs",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -67,6 +57,7 @@
       <option name="presentableId" value="Default" />
       <updated>1685196393003</updated>
       <workItem from="1685196394260" duration="1812000" />
+      <workItem from="1685198467102" duration="446000" />
     </task>
     <task id="LOCAL-00001" summary="nn">
       <created>1685197339176</created>
