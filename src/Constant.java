@@ -44,6 +44,16 @@ public class Constant implements Function {
 
     @Override
     public String toString() {
-        return String.valueOf(value);
+        if (isDoubleInt(value)) {
+            return "("  + String.valueOf((int) value) + ")";
+        } else {
+            return "(" + String.valueOf(value) + ")";
+        }
+    }
+    public boolean isDoubleInt(double d) {
+        //select a "tolerance range" for being an integer
+        double TOLERANCE = 1E-5;
+        //do not use (int)d, due to weird floating point conversions!
+        return Math.abs(Math.floor(d) - d) < TOLERANCE;
     }
 }

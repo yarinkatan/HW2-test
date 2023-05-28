@@ -1,20 +1,31 @@
 public class Quotient implements Function {
-    private final Function f;
-    private final Function g;
+    private final Function numerator;
+    private final Function denominator;
 
-    public Quotient(Function f, Function g) {
-        this.f = f;
-        this.g = g;
+    public Quotient(Function numerator, Function denominator) {
+        this.numerator = numerator;
+        this.denominator = denominator;
     }
 
     @Override
     public double valueAt(double x) {
-        return f.valueAt(x) / g.valueAt(x);
+        double numeratorValue = numerator.valueAt(x);
+        double denominatorValue = denominator.valueAt(x);
+        return numeratorValue / denominatorValue;
     }
 
     @Override
     public Function derivative() {
-        return new Quotient(new Difference(new Product(f.derivative(), g), new Product(f, g.derivative())), new Power(g, 2));
+        Function numeratorDerivative = numerator.derivative();
+        Function denominatorDerivative = denominator.derivative();
+
+        // (f * g' - g * f') / (g * g)
+        Function numeratorTerm1 = new Product(numerator, denominatorDerivative);
+        Function numeratorTerm2 = new Product(denominator, numeratorDerivative);
+        numeratorDerivative = new Difference(numeratorTerm1, numeratorTerm2);
+
+        Function denominatorTerm = new Power(denominator, 2);
+        return new Quotient(numeratorDerivative, denominatorTerm);
     }
 
     @Override
@@ -47,7 +58,7 @@ public class Quotient implements Function {
 
     @Override
     public String toString() {
-        return "(" + f.toString() + " / " + g.toString() + ")";
+        return "(" + numerator.toString() + " / " + denominator.toString() + ")";
     }
 
     private double withdrawal(double x) {

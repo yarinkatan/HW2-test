@@ -3,9 +3,11 @@ public class Polynomial implements Function {
 
     public Polynomial(double... args) {
         this.polynomial = new ItemInPolynomial[args.length];
-        for(int i = 0; i < args.length; i++) {
-            if(args[i] != 0) {
+        for (int i = 0; i < args.length; i++) {
+            if (args[i] != 0) {
                 this.polynomial[i] = new ItemInPolynomial(args[i], i);
+            } else {
+                this.polynomial[i] = null; // Initialize unused terms as null
             }
         }
     }
@@ -22,7 +24,9 @@ public class Polynomial implements Function {
     public double valueAt(double x) {
         double result = 0.0;
         for (ItemInPolynomial term : polynomial) {
-            result += term.getCoefficient() * Math.pow(x, term.getExponent());
+            if (term != null) { // Check for null terms
+                result += term.getCoefficient() * Math.pow(x, term.getExponent());
+            }
         }
         return result;
     }
@@ -31,15 +35,36 @@ public class Polynomial implements Function {
     public Function derivative() {
         ItemInPolynomial[] derivativePolynomial = new ItemInPolynomial[polynomial.length];
         for (int i = 0; i < polynomial.length; i++) {
-            double ai = polynomial[i].getCoefficient() * polynomial[i].getExponent();
-            int exponent = polynomial[i].getExponent() - 1;
-            derivativePolynomial[i] = new ItemInPolynomial(ai, exponent);
+            ItemInPolynomial term = polynomial[i];
+            if (term != null) {
+                double coefficient = term.getCoefficient() * term.getExponent();
+                int exponent = term.getExponent() - 1;
+                derivativePolynomial[i] = new ItemInPolynomial(coefficient, exponent);
+            }
         }
         return new Polynomial(derivativePolynomial);
     }
 
     @Override
     public double bisectionMethod(double a, double b, double epsilon) {
+        double left = a;
+        double right = b;
+        double mid;
+        int maxIterations = 1000; // Set a maximum number of iterations
+
+        int iterations = 0;
+        while (right - left > epsilon && iterations < maxIterations) {
+            mid = (left + right) / 2;
+            if (valueAt(left) * valueAt(mid) > 0) {
+                left = mid;
+            } else {
+                right = mid;
+            }
+            iterations++;
+        }
+
+        return (left + right) / 2;
+        /*
         double left = a;
         double right = b;
         double mid;
@@ -52,6 +77,7 @@ public class Polynomial implements Function {
             }
         }
         return (left + right) / 2;
+         */
     }
 
     @Override
@@ -74,11 +100,12 @@ public class Polynomial implements Function {
 
     @Override
     public Polynomial taylorPolynomial(int n) {
-        ItemInPolynomial[] terms = new ItemInPolynomial[n + 1];
+        ItemInPolynomial[] taylorItems = new ItemInPolynomial[n + 1];
         for (int i = 0; i <= n; i++) {
-            terms[i] = new ItemInPolynomial(0.0, i);
+            double derivative = derivative().valueAt(i);
+            taylorItems[i] = new ItemInPolynomial(derivative, i);
         }
-        return new Polynomial(terms);
+        return new Polynomial(taylorItems);
     }
 
     @Override
@@ -86,6 +113,10 @@ public class Polynomial implements Function {
         StringBuilder builder = new StringBuilder();
         boolean isFirstTerm = true;
         for (ItemInPolynomial term : polynomial) {
+            if (term == null) {
+                continue;
+            }
+
             double coefficient = term.getCoefficient();
             int exponent = term.getExponent();
 
@@ -120,7 +151,7 @@ public class Polynomial implements Function {
             builder.append("0");
         }
 
-        return builder.toString();
+        return "(" + builder.toString() + ")";
     }
 
     private double withdrawal(double x) {

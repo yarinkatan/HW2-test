@@ -1,21 +1,36 @@
 public class MultiProduct implements Function {
-    private final Function[] functions;
+    private final Function[] factors;
 
-    public MultiProduct(Function... functions) {
-        this.functions = functions;
+    public MultiProduct(Function... factors) {
+        this.factors = factors;
     }
 
     @Override
     public double valueAt(double x) {
-        double product = 1.0;
-        for (Function function : functions) {
-            product *= function.valueAt(x);
+        double result = 1.0;
+        for (Function factor : factors) {
+            result *= factor.valueAt(x);
         }
-        return product;
+        return result;
     }
 
     @Override
     public Function derivative() {
+        Function[] derivatives = new Function[factors.length];
+        for (int i = 0; i < factors.length; i++) {
+            Function[] otherFunctions = new Function[factors.length - 1];
+            int index = 0;
+            for (int j = 0; j < factors.length; j++) {
+                if (j != i) {
+                    otherFunctions[index++] = factors[j];
+                }
+            }
+            Function productOfOthers = new MultiProduct(otherFunctions);
+
+            derivatives[i] = new MultiProduct(productOfOthers, factors[i].derivative());
+        }
+        return new MultiSum(derivatives);
+        /*
         Function[] derivatives = new Function[functions.length];
         for (int i = 0; i < functions.length; i++) {
             Function[] otherFunctions = new Function[functions.length - 1];
@@ -28,6 +43,7 @@ public class MultiProduct implements Function {
             derivatives[i] = new MultiProduct(otherFunctions).derivative();
         }
         return new MultiSum(derivatives);
+         */
     }
 
     @Override
@@ -60,6 +76,33 @@ public class MultiProduct implements Function {
 
     @Override
     public String toString() {
+        StringBuilder builder = new StringBuilder();
+        boolean isFirstFactor = true;
+        for (Function factor : factors) {
+            if (isFirstFactor) {
+                builder.append(factor.toString());
+                isFirstFactor = false;
+            } else {
+                builder.append(" * ").append(factor.toString());
+            }
+        }
+        return "(" + builder.toString() + ")";
+        /*
+        return "(" + functions[0].toString() + " * " + functions[1].toString() + ")";
+         */
+        /*
+        StringBuilder sb = new StringBuilder();
+        sb.append("(");
+        for (int i = 0; i < functions.length; i++) {
+            sb.append(functions[i].toString());
+            if (i < functions.length - 1) {
+                sb.append(" + ");
+            }
+        }
+        sb.append(")");
+        return sb.toString();
+         */
+        /*
         StringBuilder sb = new StringBuilder();
         sb.append("(");
         for (int i = 0; i < functions.length; i++) {
@@ -70,6 +113,7 @@ public class MultiProduct implements Function {
         }
         sb.append(")");
         return sb.toString();
+         */
     }
 
     private double withdrawal(double x) {

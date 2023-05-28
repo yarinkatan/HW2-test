@@ -19,7 +19,18 @@ public class Sum implements Function {
 
     @Override
     public double bisectionMethod(double a, double b, double epsilon) {
-        return (a + b) / 2;
+        double left = a;
+        double right = b;
+        double mid;
+        while (right - left > epsilon) {
+            mid = (left + right) / 2;
+            if (valueAt(left) * valueAt(mid) > 0) {
+                left = mid;
+            } else {
+                right = mid;
+            }
+        }
+        return (left + right) / 2;
     }
 
     @Override
@@ -42,7 +53,22 @@ public class Sum implements Function {
 
     @Override
     public Polynomial taylorPolynomial(int n) {
-        return new Polynomial(new ItemInPolynomial[]{new ItemInPolynomial(0.0, 0)});
+        Polynomial fTaylor = f.taylorPolynomial(n);
+        Polynomial gTaylor = g.taylorPolynomial(n);
+
+        ItemInPolynomial[] sumTerms = new ItemInPolynomial[n + 1];
+        for (int i = 0; i <= n; i++) {
+            double coefficient = 0.0;
+            if (i < fTaylor.getPolynomial().length) {
+                coefficient += fTaylor.getPolynomial()[i].getCoefficient();
+            }
+            if (i < gTaylor.getPolynomial().length) {
+                coefficient += gTaylor.getPolynomial()[i].getCoefficient();
+            }
+            sumTerms[i] = new ItemInPolynomial(coefficient, i);
+        }
+
+        return new Polynomial(sumTerms);
     }
 
     @Override

@@ -42,7 +42,23 @@ public class Product implements Function {
 
     @Override
     public Polynomial taylorPolynomial(int n) {
-        return new Polynomial(new ItemInPolynomial[]{new ItemInPolynomial(0.0, 0)});
+        //return new Polynomial(new ItemInPolynomial[]{new ItemInPolynomial(0.0, 0)});
+        Polynomial fTaylor = f.taylorPolynomial(n);
+        Polynomial gTaylor = g.taylorPolynomial(n);
+
+        ItemInPolynomial[] productTerms = new ItemInPolynomial[(n + 1) * (n + 1)];
+        int index = 0;
+
+        for (ItemInPolynomial termF : fTaylor.getPolynomial()) {
+            for (ItemInPolynomial termG : gTaylor.getPolynomial()) {
+                double coefficient = termF.getCoefficient() * termG.getCoefficient();
+                int exponent = termF.getExponent() + termG.getExponent();
+                productTerms[index] = new ItemInPolynomial(coefficient, exponent);
+                index++;
+            }
+        }
+
+        return new Polynomial(productTerms);
     }
 
     @Override
