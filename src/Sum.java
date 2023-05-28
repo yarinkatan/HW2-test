@@ -14,7 +14,8 @@ public class Sum implements Function {
 
     @Override
     public Function derivative() {
-        return new Sum(f.derivative(), g.derivative());
+        Function sum1 = new Sum(f.derivative(), g.derivative());
+        return sum1;
     }
 
     @Override

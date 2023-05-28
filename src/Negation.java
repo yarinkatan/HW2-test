@@ -50,6 +50,7 @@ public class Negation implements Function {
 
     @Override
     public String toString() {
-        return "-(" + function.toString() + ")";
+        String[] temp = function.toString().split("");
+            return "(-" + function.toString() + ")";
     }
 }

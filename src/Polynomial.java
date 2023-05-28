@@ -117,40 +117,73 @@ public class Polynomial implements Function {
                 continue;
             }
 
-            double coefficient = term.getCoefficient();
-            int exponent = term.getExponent();
+            if(isDoubleInt(term.getCoefficient())) {
+                int coefficient = (int) term.getCoefficient();
+                int exponent = term.getExponent();
 
-            if (coefficient == 0.0) {
-                continue;
-            }
+                if (coefficient == 0) {
+                    continue;
+                }
 
-            if (!isFirstTerm && coefficient > 0.0) {
-                builder.append("+");
-            }
+                if (!isFirstTerm && coefficient > 0) {
+                    builder.append(" + ");
+                }
 
-            if (exponent == 0) {
-                builder.append(coefficient);
-            } else {
-                if (coefficient != 1.0 && coefficient != -1.0) {
+                if (exponent == 0) {
                     builder.append(coefficient);
-                } else if (coefficient == -1.0) {
-                    builder.append("-");
+                } else {
+                    if (coefficient != 1 && coefficient != -1) {
+                        builder.append(coefficient);
+                    } else if (coefficient == -1) {
+                        builder.append(" - ");
+                    }
+
+                    builder.append("x");
+
+                    if (exponent != 1) {
+                        builder.append("^").append(exponent);
+                    }
                 }
 
-                builder.append("x");
+                isFirstTerm = false;
+                if (builder.length() == 0) {
+                    builder.append("0");
+                }
+            } else {
+                double coefficient = term.getCoefficient();
+                int exponent = term.getExponent();
 
-                if (exponent != 1) {
-                    builder.append("^").append(exponent);
+                if (coefficient == 0.0) {
+                    continue;
+                }
+
+                if (!isFirstTerm && coefficient > 0.0) {
+                    builder.append(" + ");
+                }
+
+                if (exponent == 0) {
+                    builder.append(coefficient);
+                } else {
+                    if (coefficient != 1.0 && coefficient != -1.0) {
+                        builder.append(coefficient);
+                    } else if (coefficient == -1.0) {
+                        builder.append(" - ");
+                    }
+
+                    builder.append("x");
+
+                    if (exponent != 1) {
+                        builder.append("^").append(exponent);
+                    }
+                }
+
+                isFirstTerm = false;
+                if (builder.length() == 0) {
+                    builder.append("0");
                 }
             }
 
-            isFirstTerm = false;
         }
-
-        if (builder.length() == 0) {
-            builder.append("0");
-        }
-
         return "(" + builder.toString() + ")";
     }
 
@@ -158,5 +191,11 @@ public class Polynomial implements Function {
         double fx = valueAt(x);
         double dfx = derivative().valueAt(x);
         return x - (fx / dfx);
+    }
+    public boolean isDoubleInt(double d) {
+        //select a "tolerance range" for being an integer
+        double TOLERANCE = 1E-5;
+        //do not use (int)d, due to weird floating point conversions!
+        return Math.abs(Math.floor(d) - d) < TOLERANCE;
     }
 }

@@ -1,4 +1,6 @@
 public class ItemInPolynomial {
+
+    private int coefficientInt;
     private double coefficient;
     private final int exponent;
 
@@ -6,11 +8,17 @@ public class ItemInPolynomial {
         this.coefficient = coefficient;
         this.exponent = exponent;
     }
-
+    public ItemInPolynomial(int coefficientInt, int exponent) {
+        this.coefficientInt = coefficientInt;
+        this.exponent = exponent;
+    }
     public double getCoefficient() {
         return coefficient;
     }
-
+    //TODO: Add condition to each get of coefficient/coefficientInt
+    public int getCoefficientInt() {
+        return coefficientInt;
+    }
     public int getExponent() {
         return exponent;
     }

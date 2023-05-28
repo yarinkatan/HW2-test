@@ -4,11 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bee28d6e-dcad-45fb-9770-1f07c60329e3" name="Changes" comment="nn">
+    <list default="true" id="bee28d6e-dcad-45fb-9770-1f07c60329e3" name="Changes" comment="משימות:&#10;1. למנוע ממצב של נקודה עשרונית במס' שלמים.&#10;2. הביא לכך שהמיקומים של הסוגריים בהדפסה תקינים.&#10;3. לתקן את השימוש בפולינום טיילור.&#10;4. לתקן את &quot;שיטת החצייה&quot; כך שבחלק האחרון של הקלט לא ניכנס ללולאה אינסופית.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Constant.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Constant.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MultiProduct.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MultiProduct.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ItemInPolynomial.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ItemInPolynomial.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Negation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Negation.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Polynomial.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Polynomial.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Power.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Power.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Product.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Quotient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Quotient.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Sum.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Sum.java" afterDir="false" />
@@ -66,7 +67,8 @@
       <workItem from="1685198467102" duration="6522000" />
       <workItem from="1685219189472" duration="5977000" />
       <workItem from="1685225369390" duration="88000" />
-      <workItem from="1685225590864" duration="3561000" />
+      <workItem from="1685225590864" duration="4016000" />
+      <workItem from="1685282651346" duration="8752000" />
     </task>
     <task id="LOCAL-00001" summary="nn">
       <created>1685197339176</created>
@@ -82,7 +84,14 @@
       <option name="project" value="LOCAL" />
       <updated>1685199006925</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="משימות:&#10;1. למנוע ממצב של נקודה עשרונית במס' שלמים.&#10;2. הביא לכך שהמיקומים של הסוגריים בהדפסה תקינים.&#10;3. לתקן את השימוש בפולינום טיילור.&#10;4. לתקן את &quot;שיטת החצייה&quot; כך שבחלק האחרון של הקלט לא ניכנס ללולאה אינסופית.">
+      <created>1685232056350</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1685232056350</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -101,24 +110,16 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="nn" />
-    <option name="LAST_COMMIT_MESSAGE" value="nn" />
+    <MESSAGE value="משימות:&#10;1. למנוע ממצב של נקודה עשרונית במס' שלמים.&#10;2. הביא לכך שהמיקומים של הסוגריים בהדפסה תקינים.&#10;3. לתקן את השימוש בפולינום טיילור.&#10;4. לתקן את &quot;שיטת החצייה&quot; כך שבחלק האחרון של הקלט לא ניכנס ללולאה אינסופית." />
+    <option name="LAST_COMMIT_MESSAGE" value="משימות:&#10;1. למנוע ממצב של נקודה עשרונית במס' שלמים.&#10;2. הביא לכך שהמיקומים של הסוגריים בהדפסה תקינים.&#10;3. לתקן את השימוש בפולינום טיילור.&#10;4. לתקן את &quot;שיטת החצייה&quot; כך שבחלק האחרון של הקלט לא ניכנס ללולאה אינסופית." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Main.java</url>
-          <line>70</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/Main.java</url>
-          <line>202</line>
-          <properties class="Main" method="printTaylorPolynomial">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="5" />
+          <line>169</line>
+          <option name="timeStamp" value="12" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

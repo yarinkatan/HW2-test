@@ -20,8 +20,8 @@ public class Quotient implements Function {
         Function denominatorDerivative = denominator.derivative();
 
         // (f * g' - g * f') / (g * g)
-        Function numeratorTerm1 = new Product(numerator, denominatorDerivative);
-        Function numeratorTerm2 = new Product(denominator, numeratorDerivative);
+        Function numeratorTerm1 = new Product(numeratorDerivative, denominator);
+        Function numeratorTerm2 = new Product(denominatorDerivative , numerator);
         numeratorDerivative = new Difference(numeratorTerm1, numeratorTerm2);
 
         Function denominatorTerm = new Power(denominator, 2);

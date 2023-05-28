@@ -47,7 +47,7 @@ public class Power implements Function {
 
     @Override
     public String toString() {
-        return "(" + f.toString() + ")^" + n;
+        return "(" + f.toString() + "^" + n + ")";
     }
 
     private double withdrawal(double x) {
