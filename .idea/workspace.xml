@@ -4,16 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bee28d6e-dcad-45fb-9770-1f07c60329e3" name="Changes" comment="משימות:&#10;1. למנוע ממצב של נקודה עשרונית במס' שלמים.&#10;2. הביא לכך שהמיקומים של הסוגריים בהדפסה תקינים.&#10;3. לתקן את השימוש בפולינום טיילור.&#10;4. לתקן את &quot;שיטת החצייה&quot; כך שבחלק האחרון של הקלט לא ניכנס ללולאה אינסופית.">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ItemInPolynomial.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ItemInPolynomial.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Negation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Negation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Polynomial.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Polynomial.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Power.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Power.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Product.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Quotient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Quotient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Sum.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Sum.java" afterDir="false" />
-    </list>
+    <list default="true" id="bee28d6e-dcad-45fb-9770-1f07c60329e3" name="Changes" comment="משימות:&#10;1. למנוע ממצב של נקודה עשרונית במס' שלמים.&#10;2. הביא לכך שהמיקומים של הסוגריים בהדפסה תקינים.&#10;3. לתקן את השימוש בפולינום טיילור.&#10;4. לתקן את &quot;שיטת החצייה&quot; כך שבחלק האחרון של הקלט לא ניכנס ללולאה אינסופית." />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -68,7 +59,7 @@
       <workItem from="1685219189472" duration="5977000" />
       <workItem from="1685225369390" duration="88000" />
       <workItem from="1685225590864" duration="4016000" />
-      <workItem from="1685282651346" duration="8752000" />
+      <workItem from="1685282651346" duration="9039000" />
     </task>
     <task id="LOCAL-00001" summary="nn">
       <created>1685197339176</created>
@@ -91,7 +82,14 @@
       <option name="project" value="LOCAL" />
       <updated>1685232056350</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="משימות:&#10;1. למנוע ממצב של נקודה עשרונית במס' שלמים.&#10;2. הביא לכך שהמיקומים של הסוגריים בהדפסה תקינים.&#10;3. לתקן את השימוש בפולינום טיילור.&#10;4. לתקן את &quot;שיטת החצייה&quot; כך שבחלק האחרון של הקלט לא ניכנס ללולאה אינסופית.">
+      <created>1685293433134</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1685293433134</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
